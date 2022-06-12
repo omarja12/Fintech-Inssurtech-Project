@@ -1,6 +1,6 @@
 # Fin-Inssurtech
 
-In order to run this project please follow the following steps, n the folder containing ClaimManger:
+In order to run this project please follow the following steps, in the folder containing ClaimManger:
   - `python -m venv venv`
   - `.\venv\Scripts\activate`
   - `pip install eth-brownie`
