@@ -6,6 +6,8 @@ In order to run this project please follow the following steps, in the folder co
   - `pip install eth-brownie`
   - `cd ClaimManager`
   -  Open a Ganache workspace (Quickstart).
+  - `brownie networks list`
+  - `brownie networks add development local host=http://127.0.0.1:7545 cmd=ganache`
   - `brownie run deployClaimManager.py`
   - `brownie console`
 
