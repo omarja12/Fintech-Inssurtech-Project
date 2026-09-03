@@ -107,10 +107,6 @@ claim_manager.getContractBalance({'from': accounts[0]})
 
 The original implementation was committed in June 2022 and is kept intact to preserve its development context. The webpage and README are presentation and documentation layers around that source.
 
-## Keywords
-
-`fintech` `insurtech` `ethereum` `solidity` `smart-contracts` `insurance-claims` `claims-management` `blockchain` `decentralized-applications` `dapp` `brownie` `ganache` `web3` `ethereum-development` `on-chain-settlement` `kyc` `access-control` `state-machine` `event-driven-architecture` `financial-technology`
-
 ## License
 
 See the repository license and source history for project terms.
