@@ -103,10 +103,6 @@ claim_manager.getContractBalance({'from': accounts[0]})
 | [deployClaimManager.py](ClaimManager/scripts/deployClaimManager.py) | Original Brownie deployment script |
 | [testClaimManager.py](ClaimManager/tests/testClaimManager.py) | Original test scaffold |
 
-## Scope and limitations
-
-This is a local Ethereum development and portfolio project, not a production insurance platform. The historical contract does not include oracle-based claim evidence, policy data, upgradeability, formal access-control libraries, reentrancy protection, gas optimization, or a production dispute process. A production implementation would require a security audit, comprehensive tests, explicit legal and compliance review, and carefully designed custody and claims controls.
-
 ## Historical note
 
 The original implementation was committed in June 2022 and is kept intact to preserve its development context. The webpage and README are presentation and documentation layers around that source.
