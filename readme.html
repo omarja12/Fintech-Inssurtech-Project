@@ -7,7 +7,7 @@
   <meta name="description" content="Technical readme for Claim Ledger, an Ethereum-based insurance claim management smart contract.">
   <title>Technical Readme | Claim Ledger</title>
   <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%2307151d'/%3E%3Cpath d='M16 45V19h11c9 0 14 5 14 13s-5 13-14 13H16Zm8-7h3c5 0 7-2 7-6s-2-6-7-6h-3v12Z' fill='%2365e0cc'/%3E%3C/svg%3E" type="image/svg+xml">
-  <link rel="stylesheet" href="styles.css"><link rel="stylesheet" href="protocol-theme.css"><link rel="stylesheet" href="readme.css">
+  <link rel="stylesheet" href="styles.css"><link rel="stylesheet" href="protocol-theme.css"><link rel="stylesheet" href="reader-theme.css"><link rel="stylesheet" href="readme.css">
 </head>
 <body class="readme-page">
   <header class="site-header"><a class="brand" href="index.html"><span class="brand-mark">CL</span><span>CLAIM LEDGER</span></a><nav aria-label="Primary navigation"><a href="how-it-works.html">How it works</a><a href="index.html">Overview &#8592;</a><a href="https://github.com/omarja12/Fintech-Inssurtech-Project" target="_blank" rel="noreferrer">GitHub &#8599;</a></nav></header>
@@ -23,7 +23,7 @@ cd ClaimManager
 brownie networks add development local host=http://127.0.0.1:7545 cmd=ganache
 brownie run deployClaimManager.py
 brownie console</code></pre><p>After deployment, connect to the returned address with <code>ClaimManager.at("DEPLOYED_CONTRACT_ADDRESS")</code>, then follow the workflow above with accounts 0 and 1.</p></section>
-    <section id="source"><p class="kicker"><span></span> 05 / SOURCE MAP</p><h2>Start with the contract.</h2><div class="source-list"><a href="ClaimManager/contracts/ClaimManager.sol"><b>ClaimManager.sol</b><span>Core Solidity implementation &#8599;</span></a><a href="ClaimManager/scripts/deployClaimManager.py"><b>deployClaimManager.py</b><span>Brownie deployment entry point &#8599;</span></a><a href="ClaimManager/tests/testClaimManager.py"><b>testClaimManager.py</b><span>Test scaffold &#8599;</span></a><a href="README.md"><b>README.md</b><span>Repository documentation &#8599;</span></a></div><a class="button button-gold" href="index.html">Return to overview <span>&#8594;</span></a></section>
+    <section id="source"><p class="kicker"><span></span> 05 / SOURCE MAP</p><h2>Start with the contract.</h2><div class="source-list"><a href="ClaimManager/contracts/ClaimManager.sol"><b>ClaimManager.sol</b><span>Core Solidity implementation &#8599;</span></a><a href="ClaimManager/scripts/deployClaimManager.py"><b>deployClaimManager.py</b><span>Brownie deployment entry point &#8599;</span></a><a href="ClaimManager/tests/testClaimManager.py"><b>testClaimManager.py</b><span>Test scaffold &#8599;</span></a><a href="https://github.com/omarja12/Fintech-Inssurtech-Project" target="_blank" rel="noreferrer"><b>GitHub repository</b><span>View full source and history &#8599;</span></a></div><a class="button button-gold" href="index.html">Return to overview <span>&#8594;</span></a></section>
   </article></section></main>
   <footer class="footer page-width"><span>CLAIM LEDGER / TECHNICAL README</span><a href="#top">Back to top &#8593;</a></footer>
 </body>

@@ -143,6 +143,7 @@ claim_manager.getContractBalance({'from': accounts[0]})
 | [testClaimManager.py](ClaimManager/tests/testClaimManager.py) | Original test scaffold |
 | [readme.html](readme.html) | Visual technical documentation webpage |
 | [readme.css](readme.css) | Technical documentation page styling |
+| [reader-theme.css](reader-theme.css) | Shared cool protocol color theme |
 
 ## Historical note
 
