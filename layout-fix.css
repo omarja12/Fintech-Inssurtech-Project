@@ -1,0 +1,1 @@
+.hero{width:100%;padding-left:max(40px,calc((100% - 1160px)/2));padding-right:max(40px,calc((100% - 1160px)/2))}.hero:before{z-index:-1}@media(max-width:800px){.hero{width:100%;padding-left:19px;padding-right:19px}}

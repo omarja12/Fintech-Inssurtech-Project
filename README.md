@@ -99,6 +99,7 @@ claim_manager.getContractBalance({'from': accounts[0]})
 | --- | --- |
 | [index.html](index.html) | Portfolio-facing Claim Ledger webpage |
 | [styles.css](styles.css) | Responsive visual system for the webpage |
+| [layout-fix.css](layout-fix.css) | Full-width hero layout styling |
 | [ClaimManager.sol](ClaimManager/contracts/ClaimManager.sol) | Original insurance claim smart contract |
 | [deployClaimManager.py](ClaimManager/scripts/deployClaimManager.py) | Original Brownie deployment script |
 | [testClaimManager.py](ClaimManager/tests/testClaimManager.py) | Original test scaffold |
