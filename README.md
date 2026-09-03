@@ -144,6 +144,7 @@ claim_manager.getContractBalance({'from': accounts[0]})
 | [readme.html](readme.html) | Visual technical documentation webpage |
 | [readme.css](readme.css) | Technical documentation page styling |
 | [reader-theme.css](reader-theme.css) | Shared cool protocol color theme |
+| [readme-theme.css](readme-theme.css) | Refined enterprise palette for technical documentation |
 
 ## Historical note
 
