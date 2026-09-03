@@ -4,8 +4,6 @@
 
 Claim Ledger is a Solidity smart contract that models an insurance claim lifecycle on Ethereum. It gives customers a way to submit claims and request approval, while an administrator controls KYC verification and settlement. The contract records state transitions and emits events so the workflow can be inspected from deployment through payout.
 
-This repository preserves the original smart-contract implementation and Brownie tooling from 2022. The portfolio layer presents the same system as a professional case study without changing the historical scripts or contract source.
-
 ## Portfolio site
 
 Open the live [Claim Ledger portfolio page](https://omarja12.github.io/Fintech-Inssurtech-Project/) to see the claim lifecycle, contract roles, permissions, and event model visually.
