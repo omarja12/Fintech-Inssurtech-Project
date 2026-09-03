@@ -58,6 +58,40 @@ The contract uses `require` checks to prevent duplicate active claims, unauthori
 - Python deployment script
 - Solidity contract events and state transitions
 
+## Smart-contract theory
+
+### Claims as a state machine
+
+The contract models each claim as a finite state machine:
+
+```text
+Submitted -> Approved -> Paid
+```
+
+This matters because the contract does not merely store a status label; it enforces which transitions are legal. A customer can create a claim, but approval requires both KYC approval and enough tracked contract balance. Settlement requires the claim to already be approved. An invalid transition reverts through `require`, leaving the previous state unchanged.
+
+### Access control as a capability boundary
+
+The deployer becomes `admin` in the constructor. Administrative capabilities are guarded by the `onlyAdmin` modifier, which checks the caller before allowing KYC, balance inspection, claim inspection, or payment. Customer methods operate on `msg.sender`, so a customer cannot submit or inspect another address's claim through the public customer interface.
+
+This is a simple role-based access-control pattern: authorization is attached to the function boundary, close to the state mutation it protects. In larger systems, the same principle is commonly implemented with audited access-control libraries and multiple operational roles.
+
+### Events and auditability
+
+Ethereum contract storage records the current state, while events record important transitions in transaction logs. Claim Ledger emits:
+
+- `NewClaim` when a customer submits a claim.
+- `ClaimApproved` when KYC and funding checks pass.
+- `ClaimPaid` when the administrator settles the claim.
+
+These logs can be indexed by an off-chain dashboard or analytics service. Events are useful for audit trails, but they are not a substitute for access control: the contract still needs `require` checks to protect state changes.
+
+### Escrow-style reserve and trust model
+
+The payable constructor funds the contract, and the contract maintains a tracked `contract_balance`. Before approval, the claim amount is compared with that balance. At payment, the balance is reduced and the customer receives the claim amount.
+
+This demonstrates an escrow-style reserve, but it is not a complete insurance protocol. Real claim evidence, policy terms, external data, dispute resolution, and compliance workflows would require additional contracts or trusted off-chain services. The important design trade-off is visible: on-chain rules are transparent and deterministic, while real-world insurance facts are often external to the blockchain.
+
 ## Run the original Brownie project
 
 The original scripts and contract are intentionally unchanged. From the repository root:
@@ -100,6 +134,8 @@ claim_manager.getContractBalance({'from': accounts[0]})
 | [index.html](index.html) | Portfolio-facing Claim Ledger webpage |
 | [styles.css](styles.css) | Responsive visual system for the webpage |
 | [layout-fix.css](layout-fix.css) | Full-width hero layout styling |
+| [protocol-theme.css](protocol-theme.css) | Protocol-focused color theme |
+| [theory.css](theory.css) | Smart-contract theory section styling |
 | [ClaimManager.sol](ClaimManager/contracts/ClaimManager.sol) | Original insurance claim smart contract |
 | [deployClaimManager.py](ClaimManager/scripts/deployClaimManager.py) | Original Brownie deployment script |
 | [testClaimManager.py](ClaimManager/tests/testClaimManager.py) | Original test scaffold |
