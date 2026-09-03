@@ -1,0 +1,30 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#07151d">
+  <meta name="description" content="Technical readme for Claim Ledger, an Ethereum-based insurance claim management smart contract.">
+  <title>Technical Readme | Claim Ledger</title>
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%2307151d'/%3E%3Cpath d='M16 45V19h11c9 0 14 5 14 13s-5 13-14 13H16Zm8-7h3c5 0 7-2 7-6s-2-6-7-6h-3v12Z' fill='%2365e0cc'/%3E%3C/svg%3E" type="image/svg+xml">
+  <link rel="stylesheet" href="styles.css"><link rel="stylesheet" href="protocol-theme.css"><link rel="stylesheet" href="readme.css">
+</head>
+<body class="readme-page">
+  <header class="site-header"><a class="brand" href="index.html"><span class="brand-mark">CL</span><span>CLAIM LEDGER</span></a><nav aria-label="Primary navigation"><a href="how-it-works.html">How it works</a><a href="index.html">Overview &#8592;</a><a href="https://github.com/omarja12/Fintech-Inssurtech-Project" target="_blank" rel="noreferrer">GitHub &#8599;</a></nav></header>
+  <main><section class="readme-hero page-width"><p class="kicker"><span></span> TECHNICAL DOCUMENTATION / CLAIM LEDGER</p><h1>System notes for<br><em>smart settlement.</em></h1><p>A concise engineering reference for the Ethereum claim-management contract, its permissions, lifecycle, and local development workflow.</p><div class="readme-hero-meta"><span>STACK / SOLIDITY + BROWNIE</span><span>NETWORK / GANACHE</span><span>DOMAIN / INSURTECH</span></div></section>
+  <section class="readme-layout page-width"><aside class="readme-index"><p class="kicker"><span></span> ON THIS PAGE</p><a href="#brief">01 / Brief</a><a href="#workflow">02 / Workflow</a><a href="#interface">03 / Contract surface</a><a href="#run">04 / Run locally</a><a href="#source">05 / Source map</a></aside><article class="readme-content">
+    <section id="brief"><p class="kicker"><span></span> 01 / PROJECT BRIEF</p><h2>A rule-driven claims workflow.</h2><p>Claim Ledger is an Ethereum smart contract for managing the path from insurance claim submission to settlement. It gives customers a controlled way to submit a claim and request approval, while an administrator handles KYC and payment authorization.</p><div class="brief-stats"><div><strong>3</strong><span>claim states</span></div><div><strong>2</strong><span>operating roles</span></div><div><strong>3</strong><span>audit events</span></div></div></section>
+    <section id="workflow"><p class="kicker"><span></span> 02 / WORKFLOW</p><h2>One claim. Four checks.</h2><p>Every stage has a clear owner and a contract-level condition. The happy path is simple; the value is that invalid actions are rejected consistently.</p><div class="workflow-table"><div class="table-head"><span>Stage</span><span>Actor</span><span>Contract action</span></div><div><b>01 / Submit</b><span>Customer</span><code>submitClaim(amount)</code></div><div><b>02 / Verify</b><span>Admin</span><code>kyc(customer, true)</code></div><div><b>03 / Approve</b><span>Customer</span><code>askApproval()</code></div><div><b>04 / Settle</b><span>Admin</span><code>triggerPayment(customer)</code></div></div><div class="state-strip"><span>STATE TRANSITION</span><strong>Submitted <i>→</i> Approved <i>→</i> Paid</strong></div></section>
+    <section id="interface"><p class="kicker"><span></span> 03 / CONTRACT SURFACE</p><h2>Roles, storage, events.</h2><div class="interface-grid"><div><h3>Permissions</h3><p>The deployer becomes the administrator. The <code>onlyAdmin</code> modifier protects KYC, contract balance, cross-customer inspection, and payout.</p></div><div><h3>Storage</h3><p>Private mappings keep claim and KYC records behind role-aware getters. A claim stores a customer wallet, amount, and enum state.</p></div><div><h3>Events</h3><p><code>NewClaim</code>, <code>ClaimApproved</code>, and <code>ClaimPaid</code> expose the major transitions as queryable transaction logs.</p></div><div><h3>Funding</h3><p>The payable constructor seeds the contract reserve. Approval checks the tracked balance before the administrator can settle a claim.</p></div></div></section>
+    <section id="run"><p class="kicker"><span></span> 04 / LOCAL DEVELOPMENT</p><h2>Run the original stack.</h2><p>The project uses Brownie for deployment and console interaction, with Ganache providing a local Ethereum network at port 7545.</p><pre><code>python -m venv venv
+.\venv\Scripts\activate
+pip install eth-brownie
+cd ClaimManager
+brownie networks add development local host=http://127.0.0.1:7545 cmd=ganache
+brownie run deployClaimManager.py
+brownie console</code></pre><p>After deployment, connect to the returned address with <code>ClaimManager.at("DEPLOYED_CONTRACT_ADDRESS")</code>, then follow the workflow above with accounts 0 and 1.</p></section>
+    <section id="source"><p class="kicker"><span></span> 05 / SOURCE MAP</p><h2>Start with the contract.</h2><div class="source-list"><a href="ClaimManager/contracts/ClaimManager.sol"><b>ClaimManager.sol</b><span>Core Solidity implementation &#8599;</span></a><a href="ClaimManager/scripts/deployClaimManager.py"><b>deployClaimManager.py</b><span>Brownie deployment entry point &#8599;</span></a><a href="ClaimManager/tests/testClaimManager.py"><b>testClaimManager.py</b><span>Test scaffold &#8599;</span></a><a href="README.md"><b>README.md</b><span>Repository documentation &#8599;</span></a></div><a class="button button-gold" href="index.html">Return to overview <span>&#8594;</span></a></section>
+  </article></section></main>
+  <footer class="footer page-width"><span>CLAIM LEDGER / TECHNICAL README</span><a href="#top">Back to top &#8593;</a></footer>
+</body>
+</html>

@@ -6,7 +6,7 @@ Claim Ledger is a Solidity smart contract that models an insurance claim lifecyc
 
 ## Portfolio site
 
-Open the live [Claim Ledger portfolio page](https://omarja12.github.io/Fintech-Inssurtech-Project/) to see the claim lifecycle, contract roles, permissions, and event model visually. The dedicated [How It Works guide](how-it-works.html) explains the system in plain English for non-technical readers.
+Open the live [Claim Ledger portfolio page](https://omarja12.github.io/Fintech-Inssurtech-Project/) to see the claim lifecycle, contract roles, permissions, and event model visually. The [How It Works guide](how-it-works.html) explains the system in plain English, while the [Technical README webpage](readme.html) presents the implementation details as a visual engineering dossier.
 
 Run it locally with:
 
@@ -141,6 +141,8 @@ claim_manager.getContractBalance({'from': accounts[0]})
 | [ClaimManager.sol](ClaimManager/contracts/ClaimManager.sol) | Original insurance claim smart contract |
 | [deployClaimManager.py](ClaimManager/scripts/deployClaimManager.py) | Original Brownie deployment script |
 | [testClaimManager.py](ClaimManager/tests/testClaimManager.py) | Original test scaffold |
+| [readme.html](readme.html) | Visual technical documentation webpage |
+| [readme.css](readme.css) | Technical documentation page styling |
 
 ## Historical note
 
